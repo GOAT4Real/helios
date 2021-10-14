@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs';
 import { ProviderHttpService } from '../../provider-http.service';
-import { logData } from '../../tools';
 
 export class PremiumizeApiService extends ProviderHttpService {
   private static apikey;
@@ -50,7 +49,7 @@ export class PremiumizeApiService extends ProviderHttpService {
       params['apikey'] = this.apikey;
     }
 
-    return super.get<T>(this.addParamsToUrl(url, params), null, cacheTime, 40000);
+    return super.get<T>(this.addParamsToUrl(url, params), null, cacheTime);
   }
 
   static post<T>(url: string, body: Object, cacheTime?: string) {
